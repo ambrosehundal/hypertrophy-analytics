@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  cardio: false
+  workout_date: 2019-04-18
+  references: 
+
+two:
+  name: MyString
+  cardio: false
+  workout_date: 2019-04-18
+  references: 

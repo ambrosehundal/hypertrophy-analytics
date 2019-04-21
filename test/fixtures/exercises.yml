@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  reps: 1
+  recommended_sets: MyText
+  equipment_type: MyText
+  main_body_part: MyText
+
+two:
+  name: MyString
+  reps: 1
+  recommended_sets: MyText
+  equipment_type: MyText
+  main_body_part: MyText

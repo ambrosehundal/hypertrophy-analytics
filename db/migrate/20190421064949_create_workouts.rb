@@ -4,7 +4,7 @@ class CreateWorkouts < ActiveRecord::Migration[5.2]
       t.string :name
       t.boolean :cardio
       t.date :workout_date
-      t.users :references
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

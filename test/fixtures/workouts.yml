@@ -3,11 +3,11 @@
 one:
   name: MyString
   cardio: false
-  workout_date: 2019-04-18
-  references: 
+  workout_date: 2019-04-20
+  user: one
 
 two:
   name: MyString
   cardio: false
-  workout_date: 2019-04-18
-  references: 
+  workout_date: 2019-04-20
+  user: two

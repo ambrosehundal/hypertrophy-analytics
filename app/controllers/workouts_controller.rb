@@ -1,7 +1,11 @@
 class WorkoutsController < ApplicationController
+    #authenticate user before creating a new workout
+    before_filter :authenticate_user!
+
 
     def index
-        @workouts = Workout.all 
+        @user = User.find(params[:id])
+        @workouts = @user.workouts.all 
     end 
 
     def new

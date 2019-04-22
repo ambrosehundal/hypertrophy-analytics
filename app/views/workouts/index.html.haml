@@ -1,0 +1,24 @@
+
+%section
+.container
+  - if @user.workouts.count == 0
+    %p There are no Workouts for this user currently
+  - else
+    %h2.subtitle.is-5
+    %strong= @user.workouts.count
+    Workouts
+  %table.table
+  %thead
+    %tr
+      %th{:colspan => ""} Workout name 
+      %th{:colspan => ""} Cardio
+      %th{:colspan => ""} Date
+
+  %tbody
+    - @user.workouts.each do |f|
+      %tr
+        %td= link_to f.name, user_workout_path(f)
+        %td= f.cardio
+        %td= f.workout_date
+        
+

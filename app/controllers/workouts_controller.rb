@@ -9,11 +9,12 @@ class WorkoutsController < ApplicationController
     end 
 
     def new
-        @workout = Workout.new
+        @workout = @user.workout.new
     end
 
     def show
         @workout = Workout.find(params[:id])
+        
     end
 
     private

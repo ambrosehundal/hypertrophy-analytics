@@ -2,10 +2,11 @@
 %section
 .container
   - if @user.workouts.count == 0
-    %p There are no Workouts for this user currently
+    %p There are no Workouts for this user currently.
+    %strong= @user.email
   - else
     %h2.subtitle.is-5
-    %strong= @user.workouts.count
+    %strong= @user.email
     Workouts
   %table.table
   %thead
@@ -21,4 +22,13 @@
         %td= f.cardio
         %td= f.workout_date
         
+
+  %br
+  - if user_signed_in?
+    %li
+      = link_to('Logout User', destroy_user_session_path, method: :delete)
+  - else
+    %li
+      = link_to('Login', new_user_session_path)
+
 

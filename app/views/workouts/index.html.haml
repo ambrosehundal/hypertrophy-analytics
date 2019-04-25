@@ -3,10 +3,11 @@
 .container
   - if @user.workouts.count == 0
     %p There are no Workouts for this user currently.
-    %strong= @user.email
+    %strong Logged in as @user.first_name
   - else
     %h2.subtitle.is-5
-    %strong= @user.email
+    %strong= @user.first_name
+
     Workouts
   %table.table
   %thead

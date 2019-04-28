@@ -3,7 +3,7 @@
 .container
   - if @user.workouts.count == 0
     %p There are no Workouts for this user currently.
-    %strong Logged in as @user.first_name
+    %strong Logged in as @user.email
   - else
     %h2.subtitle.is-5
     %strong= @user.first_name

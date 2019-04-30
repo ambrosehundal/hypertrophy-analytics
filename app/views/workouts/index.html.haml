@@ -2,8 +2,21 @@
 %section
 .container
   - if @user.workouts.count == 0
-    %p There are no Workouts for this user currently.
-    %strong Logged in as @user.email
+    %p 
+    There are 
+    = @user.workouts.count
+    Workouts for this user currently.
+
+    %br
+    %br
+    %br
+    
+
+
+    %strong Athlete Profile - 
+    %strong= @user.first_name
+    %strong= @user.last_name
+
   - else
     %h2.subtitle.is-5
     %strong= @user.first_name
@@ -13,7 +26,7 @@
   %thead
     %tr
       %th{:colspan => ""} Workout name 
-      %th{:colspan => ""} Cardio
+      %th{:colspan => ""} Cardio (Included or not)
       %th{:colspan => ""} Date
 
   %tbody
@@ -25,6 +38,12 @@
         
 
   %br
+  %br
+  %br
+  %br
+
+  %br
+
   - if user_signed_in?
     %li
       = link_to('Logout User', destroy_user_session_path, method: :delete)

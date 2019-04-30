@@ -40,7 +40,7 @@
     %tbody
       - @user.workouts.each do |f|
         %tr
-          %td= link_to f.name, user_workout_path(f)
+          %td= link_to f.name, user_workout_path(@user, f)
           - if f.cardio = true
             %td Yes
           - else

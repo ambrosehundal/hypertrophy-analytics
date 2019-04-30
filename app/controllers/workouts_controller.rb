@@ -21,7 +21,8 @@ class WorkoutsController < ApplicationController
     end
 
     def show
-       # @user = 
+        @user = User.find(params[:user_id])
+        @workout = @user.workouts.find(params[:id])
 
     end
 

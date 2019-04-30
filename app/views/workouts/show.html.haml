@@ -1,0 +1,21 @@
+%link{:crossorigin => "anonymous", :href => "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", :integrity => "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T", :rel => "stylesheet"}/
+
+.container
+  %br
+  %br
+  %br
+  %strong= @user.workouts.count
+  %strong  Workouts recorded
+  %br
+  %br
+  %table.table.table-striped.table-bordered
+    %thead
+      %tr
+        %th{:colspan => ""} Name
+        %th{:colspan => ""} Cardio
+        %th{:colspan => ""} Date
+    %tbody
+      %tr
+        %td= @workout.name
+        %td= @workout.cardio
+        %td= @workout.workout_date

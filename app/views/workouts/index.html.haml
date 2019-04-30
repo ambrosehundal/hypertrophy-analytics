@@ -1,6 +1,6 @@
 %link{:crossorigin => "anonymous", :href => "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", :integrity => "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T", :rel => "stylesheet"}/
 
-.container
+.container.container_size
   - if @user.workouts.count == 0
     %p 
     There are 
@@ -19,12 +19,17 @@
 
   - else
     %h2.subtitle.is-5
+
+    %br
     %strong Athlete Profile - 
     %strong= @user.first_name
     %strong= @user.last_name
 
+    %br
+    %br
+
     Workouts
-  %table.table-striped.table-dark
+  %table.table-striped.table-bordered.container_size
     %thead
       %tr
         %th{:colspan => ""} Workout name 
@@ -36,8 +41,13 @@
       - @user.workouts.each do |f|
         %tr
           %td= link_to f.name, user_workouts_path(f)
-          %td= f.cardio
+          - if f.cardio = true
+            %td Yes
+          - else
+            %td Get off your lazy ass!!
           %td= f.workout_date
+  %br
+  %br
 
   
   - if user_signed_in?

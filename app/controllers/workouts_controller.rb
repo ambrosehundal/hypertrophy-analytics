@@ -15,11 +15,14 @@ class WorkoutsController < ApplicationController
 
     def create
         @user = User.find(params[:user_id])
-        @user.workout.save
+        @workout = @user.workouts.create(workout_params)
+        #@workout.save
+        redirect_to :action => 'index'
     end
 
     def show
-        @workout = Workout.find(params[:id])
+       # @user = 
+
     end
 
 

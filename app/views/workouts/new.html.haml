@@ -2,24 +2,17 @@
 = form_for @workout, :url => url_for(:controller => 'workouts', :action => 'create') do |form|
   .form-group
     %p
-      = form.label :title
+      = form.label :Name
       %br/
-      = form.text_field :title
+      = form.text_field :name
   %p
-    = form.label :Purchase_date
+    = form.label :Cardio
     %br/
-    = form.date_field :purchase_date
+    = form.check_box :cardio
   %p
-    = form.label :Total_cost
-    %br/
-    = form.number_field :cost
-  %p
-    = form.label :Notes
-    %br/
-    = form.text_field :notes
-  %p
-    = form.label :receipt
-    = form.file_field :receipt
+    = form.label :Workout_date
+    %br
+    = form.date_field :workout_date
   %p
     = form.submit
 %br/

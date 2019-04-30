@@ -1,5 +1,5 @@
+%link{:crossorigin => "anonymous", :href => "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", :integrity => "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T", :rel => "stylesheet"}/
 
-%section
 .container
   - if @user.workouts.count == 0
     %p 
@@ -19,22 +19,25 @@
 
   - else
     %h2.subtitle.is-5
+    %strong Athlete Profile - 
     %strong= @user.first_name
+    %strong= @user.last_name
 
     Workouts
-  %table.table
-  %thead
-    %tr
-      %th{:colspan => ""} Workout name 
-      %th{:colspan => ""} Cardio (Included or not)
-      %th{:colspan => ""} Date
-
-  %tbody
-    - @user.workouts.each do |f|
+  %table.table-striped.table-dark
+    %thead
       %tr
-        %td= link_to f.name, user_workout_path(f)
-        %td= f.cardio
-        %td= f.workout_date
+        %th{:colspan => ""} Workout name 
+        %th{:colspan => ""} Cardio (Included or not)
+        %th{:colspan => ""} Date
+        %br
+
+    %tbody
+      - @user.workouts.each do |f|
+        %tr
+          %td= link_to f.name, user_workouts_path(f)
+          %td= f.cardio
+          %td= f.workout_date
 
   
   - if user_signed_in?

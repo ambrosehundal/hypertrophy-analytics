@@ -1,0 +1,27 @@
+%h3 Form for creating a new workout
+= form_for @workout, :url => url_for(:controller => 'workouts', :action => 'create') do |form|
+  .form-group
+    %p
+      = form.label :title
+      %br/
+      = form.text_field :title
+  %p
+    = form.label :Purchase_date
+    %br/
+    = form.date_field :purchase_date
+  %p
+    = form.label :Total_cost
+    %br/
+    = form.number_field :cost
+  %p
+    = form.label :Notes
+    %br/
+    = form.text_field :notes
+  %p
+    = form.label :receipt
+    = form.file_field :receipt
+  %p
+    = form.submit
+%br/
+%br/
+%p Add workout to the user list

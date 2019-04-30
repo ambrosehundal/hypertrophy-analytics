@@ -35,6 +35,12 @@
         %td= link_to f.name, user_workout_path(f)
         %td= f.cardio
         %td= f.workout_date
+
+  
+  - if user_signed_in?
+    %p= link_to('Create a new workout', new_user_workout_path)
+
+  
         
 
   %br
@@ -45,6 +51,8 @@
   %br
 
   - if user_signed_in?
+    %li You are currently logged in as
+    =@user.email
     %li
       = link_to('Logout User', destroy_user_session_path, method: :delete)
   - else

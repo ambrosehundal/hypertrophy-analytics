@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     end
   end
 
+  #route to have a directory of exercises
+  resources :exercises
+
 
 
  

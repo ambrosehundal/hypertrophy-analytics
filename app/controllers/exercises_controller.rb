@@ -17,7 +17,8 @@ class ExercisesController < ApplicationController
 
     def create
         @user = User.find(params[:user_id])
-        @workout = @user.workouts.create(workout_params)
+        @workout = @user.workouts.find(params[:id])
+        @exercise = @user.workouts.exercises.create(exercise_params)
         #@workout.save
         redirect_to :action => 'index'
     end
@@ -25,6 +26,8 @@ class ExercisesController < ApplicationController
     def show
         @user = User.find(params[:user_id])
         @workout = @user.workouts.find(params[:id])
+        @exercise = @user.workouts.exercises.find(params[:exercise_id]) # check if logic is correcr
+
     end
 
 

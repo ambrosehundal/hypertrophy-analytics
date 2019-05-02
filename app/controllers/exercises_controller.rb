@@ -3,15 +3,15 @@ class ExercisesController < ApplicationController
     def index
         @user = User.find(params[:user_id])
         @workout = @user.workouts.find(params[:id])
-        @exercises = @user.workouts.exercises.all
+        @exercises = @workout.exercises.all
         
 
     end 
 
     def new
         @user = User.find(params[:user_id])
-        @workout = @user.workouts.find(params[:id])
-        @exercise = @user.workouts.exercises.new
+        @workout = @user.workouts.find(params[:workout_id])
+        @exercise = @workout.exercises.new
        
     end
 

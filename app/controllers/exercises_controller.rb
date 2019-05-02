@@ -1,7 +1,7 @@
 class ExercisesController < ApplicationController
 
     def index
-        @user = User.find(params[:user_id])
+       
         @workout = @user.workouts.find(params[:id])
         @exercises = @workout.exercises.all
         

@@ -8,8 +8,10 @@ Rails.application.routes.draw do
     end
   end
 
+  post '/users/:user_id/workouts/:workout_id/exercises' => 'exercises#create'
+
   #route to have a directory of exercises
-  resources :exercises
+  #resources :exercises
 
 
 

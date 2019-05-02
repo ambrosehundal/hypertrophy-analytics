@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_02_052944) do
+ActiveRecord::Schema.define(version: 2019_05_02_061506) do
 
   create_table "exercise_lists", force: :cascade do |t|
     t.string "exercise_name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_05_02_052944) do
     t.datetime "updated_at", null: false
     t.integer "workout_id"
     t.integer "sets_performed"
+    t.string "exercise_notes"
     t.index ["workout_id"], name: "index_exercises_on_workout_id"
   end
 

@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_01_041240) do
+ActiveRecord::Schema.define(version: 2019_05_02_052944) do
+
+  create_table "exercise_lists", force: :cascade do |t|
+    t.string "exercise_name"
+    t.string "bodypart"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "exercises", force: :cascade do |t|
     t.string "name"

@@ -28,7 +28,7 @@ class ExerciseSetsController < ApplicationController
   # POST /exercise_sets.json
   def create
     @exercise = Exercise.find(params[:exercise_id])
-    @exercise_set = Exercise.exercise_sets.new
+    @exercise_set = Exercise.exercise_sets.create(exercise_set_params)
 
     respond_to do |format|
       if @exercise_set.save

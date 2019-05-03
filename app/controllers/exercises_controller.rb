@@ -24,9 +24,9 @@ class ExercisesController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:user_id])
-        @workout = @user.workouts.find(params[:id])
-        @exercise = @user.workouts.exercises.find(params[:exercise_id]) # check if logic is correcr
+    
+        @workout = Workout.find(params[:workout_id])
+        @exercise = @workout.exercises.find(params[:id]) # check if logic is correcr
 
     end
 

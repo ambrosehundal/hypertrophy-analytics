@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     resources :exercises
   end
 
-  post '/users/:user_id/workouts/:workout_id/exercises' => 'exercises#create'
+  resources :exercises do
+    resources :exercise_sets
+  end
+
+  #post '/users/:user_id/workouts/:workout_id/exercises' => 'exercises#create'
 
   #route to have a directory of exercises
   #resources :exercises

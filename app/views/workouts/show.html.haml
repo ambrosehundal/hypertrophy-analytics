@@ -27,6 +27,30 @@
     %br
   %br
   %br
+  Exercises
+  %table.table-striped.table-bordered.container_size
+    %thead
+      %tr
+        %th{:colspan => ""} Exercise name 
+        %th{:colspan => ""} Equipment 
+        %th{:colspan => ""} Sets
+        %th{:colspan => ""} Main Body Part
+        %th{:colspan => ""} Notes
+
+    %tbody
+      - @workout.exercises.each do |f|
+        %tr
+          %td= link_to f.name, workout_exercise_path(@workout, f)
+          %td= f.equipment_type
+          %td= f.sets_performed
+          %td= f.main_body_part
+          %td= f.exercise_notes
+          
+  %br
+  %br
+
+
+
 
    
 

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Weight lbs:</strong>
+  <%= @exercise_set.weight_lbs %>
+</p>
+
+<p>
+  <strong>Reps:</strong>
+  <%= @exercise_set.reps %>
+</p>
+
+<p>
+  <strong>Previous:</strong>
+  <%= @exercise_set.previous %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @exercise_set.notes %>
+</p>
+
+<%= link_to 'Edit', edit_exercise_set_path(@exercise_set) %> |
+<%= link_to 'Back', exercise_sets_path %>

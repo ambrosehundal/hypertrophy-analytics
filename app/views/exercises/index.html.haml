@@ -1,0 +1,76 @@
+%link{:crossorigin => "anonymous", :href => "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", :integrity => "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T", :rel => "stylesheet"}/
+
+.container.container_size
+  - if @user.workouts.count == 0
+    %p 
+    There are 
+    = @user.workouts.count
+    Workouts for this user currently.
+
+    %br
+    %br
+    %br
+    
+
+
+    %strong Athlete Profile - 
+    %strong= @user.first_name
+    %strong= @user.last_name
+
+  - else
+    %h2.subtitle.is-5
+
+    %br
+    %strong Athlete Profile - 
+    %strong= @user.first_name
+    %strong= @user.last_name
+
+    %br
+    %br
+
+    Workouts
+  %table.table-striped.table-bordered.container_size
+    %thead
+      %tr
+        %th{:colspan => ""} Exercise name 
+        %th{:colspan => ""} Equipment 
+        %th{:colspan => ""} Sets
+        %th{:colspan => ""} Main Body Part
+        %th{:colspan => ""} Notes
+
+    %tbody
+      - @workout.exercises.each do |f|
+        %tr
+          %td= link_to f.name, new_user_workout_exercise_path(@user, @workout, f)
+          %td= f.equipment_type
+          %td= f.sets_performed
+          %td= f.main_body_part
+          %td= f.exercise_notes
+          
+  %br
+  %br
+
+  
+  - if user_signed_in?
+    %p= link_to('Create a new workout', new_user_workout_path)
+
+  
+        
+
+  %br
+  %br
+  %br
+  %br
+
+  %br
+
+  - if user_signed_in?
+    %li You are currently logged in as
+    =@user.email
+    %li
+      = link_to('Logout User', destroy_user_session_path, method: :delete)
+  - else
+    %li
+      = link_to('Login', new_user_session_path)
+
+

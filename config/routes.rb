@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users do
-    resources :workouts do
-      resources :exercises
-    end
+    resources :workouts 
+  end
+
+  resources :workouts do
+    resources :exercises
   end
 
   post '/users/:user_id/workouts/:workout_id/exercises' => 'exercises#create'

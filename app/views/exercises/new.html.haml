@@ -1,37 +1,28 @@
-<%= form_with(model: exercise, local: true) do |form| %>
-  %p Athlete name - 
+%h3 Form for creating a new exercise
+= form_for @exercise, :url => url_for(:controller => 'exercises', :action => 'create') do |form|
+  .form-group
+    %p
+      = form.label :Name
+      %br/
+      = form.text_field :name
   %p
-    %b= @user.first_name 
-    %b= @user.last_name
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %h3= @workout.name
-  - if @exercise.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(exercise.errors.count, "error")
-        prohibited this exercise from being saved:
-      %ul
-        - exercise.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = form.label :exercise_name
-    = form.text_field :name
-  .field
-    = form.label :bodypart
-    = form.text_field :main_body_part
-  .field
-    = form.label :equipment_type
+    = form.label :Equipment
+    %br/
     = form.text_field :equipment_type
-  .field
+  %p
     = form.label :sets
-    = form.text_field :sets_performed
-  .field
-    = form.label :Notes
-    = form.text_field :exercise_notes
-  .actions
+    %br
+    = form.number_field :sets_performed
+  %p
+    = form.label :body_part
+    %br
+    = form.text_field :main_body_part
+  %p
+    = form.label :notes
+    %br
+    = form.text_field:exercise_notes
+  %p
     = form.submit
+%br/
+%br/
+%p Add exercise to the user list

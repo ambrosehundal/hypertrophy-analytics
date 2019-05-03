@@ -1,8 +1,8 @@
 class ExercisesController < ApplicationController
 
     def index
-       
-        @workout = @user.workouts.find(params[:id])
+        @user = User.find(params[:user_id])
+        @workout = @user.workouts.find(params[:workout_id])
         @exercises = @workout.exercises.all
         
 
@@ -17,8 +17,8 @@ class ExercisesController < ApplicationController
 
     def create
         @user = User.find(params[:user_id])
-        @workout = @user.workouts.find(params[:id])
-        @exercise = @user.workouts.exercises.create(exercise_params)
+        @workout = @user.workouts.find(params[:workout_id])
+        @exercise = @workout.exercises.create(exercise_params)
         #@workout.save
         redirect_to :action => 'index'
     end

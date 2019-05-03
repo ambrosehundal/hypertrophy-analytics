@@ -1,34 +1,11 @@
 %link{:crossorigin => "anonymous", :href => "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", :integrity => "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T", :rel => "stylesheet"}/
 
 .container.container_size
-  - if @user.workouts.count == 0
-    %p 
-    There are 
-    = @user.workouts.count
-    Workouts for this user currently.
-
-    %br
-    %br
-    %br
-    
+  
 
 
-    %strong Athlete Profile - 
-    %strong= @user.first_name
-    %strong= @user.last_name
 
-  - else
-    %h2.subtitle.is-5
-
-    %br
-    %strong Athlete Profile - 
-    %strong= @user.first_name
-    %strong= @user.last_name
-
-    %br
-    %br
-
-    Workouts
+  Workouts
   %table.table-striped.table-bordered.container_size
     %thead
       %tr
@@ -41,7 +18,7 @@
     %tbody
       - @workout.exercises.each do |f|
         %tr
-          %td= link_to f.name, new_user_workout_exercise_path(@user, @workout, f)
+          %td= link_to f.name, workout_exercise_path(@workout, f)
           %td= f.equipment_type
           %td= f.sets_performed
           %td= f.main_body_part

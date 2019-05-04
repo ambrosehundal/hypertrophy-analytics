@@ -1,0 +1,21 @@
+%h3 Form for creating a new set
+= form_for @exercise_set, :url => url_for(:controller => 'exercise_set', :action => 'create') do |form|
+  .form-group
+    = hidden_field_tag :exercise_id, @exercise.id
+    %p
+      = form.label :weight
+      %br/
+      = form.number_field :weight_lbs
+    %p
+        = form.label :reps
+        %br/
+        = form.number_field :reps
+    %p
+        = form.label :notes
+        %br
+        = form.text_field :notes
+    %p
+        = form.submit
+    %br/
+    %br/
+    %p Add set to exercise list

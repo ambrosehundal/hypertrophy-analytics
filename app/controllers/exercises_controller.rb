@@ -16,7 +16,7 @@ class ExercisesController < ApplicationController
     end
 
     def create
-      #  @user = User.find(params[:user_id])
+       # @user = User.find(params[:user_id])
         @workout = Workout.find(params[:workout_id])
         @exercise = @workout.exercises.create(exercise_params)
         #@workout.save

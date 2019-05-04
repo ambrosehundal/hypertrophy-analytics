@@ -2,6 +2,10 @@
 
 
 <h2><%= @exercise.name %></h2>
+XHTML
+<%= line_chart @exercise_sets.group(:reps).count %>
+
+<%= pie_chart @exercise_sets.group(:weight_lbs).count %>
 
 <h1> Sets</h1>
 <table>
@@ -23,7 +27,6 @@
         <td><%= exercise_set.previous %></td>
         <td><%= exercise_set.notes %></td>
         <td><%= link_to 'Show', exercise_set %></td>
-    
         <td><%= link_to 'Destroy', exercise_set, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

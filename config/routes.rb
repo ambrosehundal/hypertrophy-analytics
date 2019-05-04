@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :exercise_sets
+  #resources :exercise_sets
   resources :exercise_lists
   devise_for :users
 
@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     resources :exercises
   end
 
-  resources :exercises do
-    resources :exercise_sets
+  resources :exercises, shallow: true do
+    resources :exercise_sets, only: [:new, :index, :create, :destroy]
   end
 
  

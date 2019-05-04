@@ -27,12 +27,12 @@ class ExerciseSetsController < ApplicationController
   # POST /exercise_sets
   # POST /exercise_sets.json
   def create
-    @exercise_set.exercise_id = Exercise.find(params[:exercise_id]).id
+    @exercise = Exercise.find(params[:exercise_id])
     @exercise_set = @exercise.exercise_sets.create(exercise_set_params)
 
     respond_to do |format|
       if @exercise_set.save
-        format.html { redirect_to @exercise_set, notice: 'Exercise set was successfully created.' }
+        format.html { redirect_to :exercise_exercise_sets, notice: 'Exercise set was successfully created.' }
         format.json { render :show, status: :created, location: @exercise_set }
       else
         format.html { render :new }

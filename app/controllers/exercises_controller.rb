@@ -4,6 +4,7 @@ class ExercisesController < ApplicationController
        # @user = User.find(params[:user_id])
         @workout = Workout.find(params[:workout_id])
         @exercises = @workout.exercises.all
+        json_response(@exercises)
         
 
     end 
@@ -12,6 +13,7 @@ class ExercisesController < ApplicationController
       #  @user = User.find(params[:userid])
         @workout = Workout.find(params[:workout_id])
         @exercise = @workout.exercises.new
+        json_response(@exercise)
        
     end
 
@@ -19,6 +21,7 @@ class ExercisesController < ApplicationController
        # @user = User.find(params[:user_id])
         @workout = Workout.find(params[:workout_id])
         @exercise = @workout.exercises.create(exercise_params)
+        json_response(@exercise)
         #@workout.save
         redirect_to :action => 'index'
     end
@@ -26,7 +29,8 @@ class ExercisesController < ApplicationController
     def show
     
         @workout = Workout.find(params[:workout_id])
-        @exercise = @workout.exercises.find(params[:id]) # check if logic is correcr
+        @exercise = @workout.exercises.find(params[:id]) 
+        json_response(@exercise)
 
     end
 
